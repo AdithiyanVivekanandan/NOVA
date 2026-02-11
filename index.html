@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CONCLAVE :: Secure Node</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;600&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/layout.css" />
+  <link rel="stylesheet" href="styles/animations.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-vignette" aria-hidden="true"></div>
+
+  <div id="boot-screen" class="screen active">
+    <div class="scanline-pass"></div>
+    <div class="noise"></div>
+    <div class="boot-text terminal">&gt; INITIALIZING NODE...</div>
+  </div>
+
+  <main id="main-screen" class="screen">
+    <header class="system-label label-top terminal">NODE STATUS: ACTIVE</header>
+    <footer class="system-label label-bottom terminal">ENCRYPTION: AES-512</footer>
+
+    <section id="landing" class="landing">
+      <h1 id="decode-title" class="title">C0NCL4V3</h1>
+    </section>
+
+    <section id="login-panel" class="login-panel">
+      <div class="panel-header terminal">SECURE TERMINAL</div>
+      <label class="field-label terminal" for="user-id">USER ID</label>
+      <div class="input-wrap">
+        <input id="user-id" type="password" autocomplete="off" spellcheck="false" maxlength="32" />
+        <span class="cursor"></span>
+      </div>
+      <label class="field-label terminal" for="access-key">ACCESS KEY</label>
+      <div class="input-wrap">
+        <input id="access-key" type="password" autocomplete="off" spellcheck="false" maxlength="32" />
+        <span class="cursor"></span>
+      </div>
+      <button id="enter-btn" class="terminal">ENTER</button>
+      <div id="terminal-log" class="terminal log">&gt; WAITING INPUT...</div>
+    </section>
+
+    <section id="poster-mode" class="poster-mode">
+      <aside class="left-logs terminal" id="left-logs"></aside>
+      <div class="poster-shell">
+        <div class="poster-fragment layer-a"></div>
+        <div class="poster-fragment layer-b"></div>
+        <img id="poster" src="assets/poster/poster.png" alt="Conclave classified poster" />
+        <div class="poster-scan"></div>
+      </div>
+      <aside class="wave-wrap">
+        <canvas id="signal-wave" width="240" height="420" aria-label="Signal waveform"></canvas>
+      </aside>
+    </section>
+
+    <div id="alert-feed" class="alert-feed terminal" aria-live="polite"></div>
+  </main>
+
+  <div id="glitch-overlay" aria-hidden="true">
+    <div class="g-slice s1"></div>
+    <div class="g-slice s2"></div>
+    <div class="g-slice s3"></div>
+  </div>
+
+  <div id="cursor-halo" aria-hidden="true"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="scripts/glitch.js"></script>
+  <script src="scripts/animations.js"></script>
+  <script src="scripts/login.js"></script>
+  <script src="scripts/app.js"></script>
+</body>
+</html>
